@@ -66,7 +66,7 @@ public class Graph {
 
 
     public void printAdjacencyList() {
-        System.out.println("Adjacency list: ");
+        System.out.println("\nAdjacency list: ");
         for (Node n : map) {
             StringBuilder resultN = new StringBuilder(n.getValue() + " ");
             if (n.list.size() != 0) {
@@ -124,10 +124,12 @@ public class Graph {
 
     void printSolution(int[] distance)
     {
-        System.out.println("\nDistance from source to each node (0 = source  and  "+Integer.MAX_VALUE+" = unreachable)");
+        System.out.println("\nDistance from source to each node (0 = source)");
+        //and  "+Integer.MAX_VALUE+" = unreachable
+
         System.out.println("Node \t Distance");
         for (int i = 0; i < map.size(); i++)
-            System.out.println(i + " \t\t " + distance[i]);
+            System.out.println(i + " \t\t " + (distance[i]==Integer.MAX_VALUE?"unreachable":""+distance[i]));
     }
 
     private int minDistance(int[] distance, boolean[] checked){
@@ -143,6 +145,7 @@ public class Graph {
     }
 
     public void findShortestDistance(int source, int destination){
-        System.out.println("\nThe shortest path from "+source+" to "+destination+" is "+dijkstraAlgorithm(source, destination));
+        Integer result = dijkstraAlgorithm(source, destination);
+        System.out.println("\nThe shortest path from "+source+" to "+destination+" is "+(result==Integer.MAX_VALUE?"unreachable":""+result));
     }
 }
