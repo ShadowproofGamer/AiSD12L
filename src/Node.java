@@ -1,6 +1,6 @@
 import java.util.LinkedList;
 
-public class Node {
+public class Node implements Comparable<Node>{
     private int value;
     LinkedList<Edge> list;
     public Node(int value){
@@ -13,5 +13,10 @@ public class Node {
 
     public int getValue() {
         return value;
+    }
+
+    @Override
+    public int compareTo(Node n) {
+        return Integer.compare(value, n.value);
     }
 }

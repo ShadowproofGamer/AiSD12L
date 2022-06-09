@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.LinkedList;
 
 public class Graph {
@@ -59,8 +60,10 @@ public class Graph {
         }
         Node n = new Node(value);
         addNode(n);
+        map.sort(new NodeComparator());
         return n;
     }
+
 
     public void printAdjacencyList() {
         System.out.println("Adjacency list: ");
@@ -76,6 +79,8 @@ public class Graph {
             System.out.println(resultN);
         }
     }
+
+
 
     public int dijkstraAlgorithm(int source, int destination){
         return dijkstraAlgorithm(getNode(source), getNode(destination));

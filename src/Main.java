@@ -1,11 +1,6 @@
 public class Main {
     public static void main(String[] args) {
         Graph g = new Graph();
-        g.addNode(0);
-        g.addNode(1);
-        g.addNode(2);
-        g.addNode(3);
-        g.addNode(4);
         g.addEdge(0,1,10);
         g.addEdge(0,3,30);
         g.addEdge(0,4,100);
